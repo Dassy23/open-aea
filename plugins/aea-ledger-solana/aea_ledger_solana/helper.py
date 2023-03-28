@@ -243,8 +243,8 @@ class SolanaHelper(Helper):
         """
         stxn = SolanaTransaction.from_json(tx)
         nonce = self._generate_tx_nonce()
+        stxn.recent_blockhash =  stxn.recent_blockhash.from_string(nonce)
         txn = stxn.to_json()
-        txn["recentBlockhash"] = nonce
         return txn
     
     def add_increase_compute_ix(self, tx: dict, compute: int, additional_fee: int) -> JSONLike:

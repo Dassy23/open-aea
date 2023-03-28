@@ -595,7 +595,6 @@ def test_contract_method_call():
             tx_args=None,
         )
 
-        tx1["message"]["header"]["numReadonlySignedAccounts"] = 0
         tx1 = sa.add_nonce(tx1)
 
         signed_transaction = active_player.sign_transaction(
