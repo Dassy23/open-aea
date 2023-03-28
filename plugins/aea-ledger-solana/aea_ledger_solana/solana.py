@@ -44,7 +44,7 @@ from aea.common import Address, JSONLike
 from aea.crypto.base import LedgerApi
 from aea.helpers.base import try_decorator
 
-from .constants import DEFAULT_ADDRESS, DEFAULT_CHAIN_ID, _SOLANA, _VERSION
+from .constants import DEFAULT_ADDRESS, DEFAULT_CHAIN_ID, _SOLANA
 from .crypto import SolanaCrypto
 from .faucet import SolanaFaucetApi  # noqa: F401
 from .helper import SolanaHelper
@@ -72,7 +72,6 @@ class SolanaApi(LedgerApi, SolanaHelper):
         )
 
         self._chain_id = kwargs.pop("chain_id", DEFAULT_CHAIN_ID)
-        self._version = _VERSION
         self.BlockhashCache = BlockhashCache(ttl=10)
         self._get_latest_hash()
 
